@@ -9,6 +9,10 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/keys.h>
 
+#define DEFAULT 0
+#define FUNC_LAYER 1
+#define DANGER_LAYER 2
+
 / {
   keymap {
     compatible = "zmk,keymap";
@@ -22,5 +26,34 @@
         &none       &kp KP_N0     &kp KP_DOT      &kp KP_ENTER
       >;
     };
+
+    func_layer {
+      bindings = <
+        &none        &none         &none        &tog DANGER_LAYER
+        &none        &none         &none        &none
+        &bt BT_PRV   &none         &bt BT_NXT   &none
+        &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &none
+        &none        &out OUT_TOG  &bt BT_CLR   &none
+      >;
+    };
+
+    danger_layer {
+      bindings = <
+        &none &none &none &bootloader
+        &none &none &none &none
+        &none &none &none &none
+        &none &none &none &none
+        &none &none &none &reset
+      >;
+    }
   };
+
+  combos {
+    compatible = "zmk,combos"
+    combo_l1 {
+      timeout-ms = <50>;
+      key-positions = <0 19>;
+      bindings = <&tog FUNC_LAYER>;
+    }
+  }
 };
