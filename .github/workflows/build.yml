@@ -45,7 +45,7 @@ jobs:
         run: cp build/zephyr/zmk.uf2 maypad_nice_nano_v2.uf2
 
       - name: West Build (Sofle RGB - Left)
-        run: west build -s zmk/app -b nice_name_v2 -- -DSHIELD=sofle-rgb_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=sofle-rgb_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Sofle RGB DTS File (Left)
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano_v2.dts.pre.tmp
@@ -55,7 +55,7 @@ jobs:
         run: cp build/zephyr/zmk.uf2 sofle_rgb_left_nice_nano_v2.uf2
 
       - name: West Build (Sofle RGB - Right)
-        run: west build -s zmk/app -b nice_name_v2 -- -DSHIELD=sofle-rgb_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=sofle-rgb_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Sofle RGB DTS File (Right)
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano_v2.dts.pre.tmp
