@@ -1,0 +1,23 @@
+if SHIELD_SOFLE_RGB_LEFT
+
+config ZMK_KEYBOARD_NAME
+       default "Sofle RGB Left"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+       deafult y
+
+endif
+
+if SHIELD_SOFLE_RGB_RIGHT
+
+config ZMK_KEYBOARD_NAME
+       default "Sofle RGB Right"
+
+endif
+
+if SHIELD_SOFLE_RGB_LEFT || SHIELD_SOFLE_RGB_RIGHT
+
+config ZMK_SPLIT
+       default y
+
+endif
