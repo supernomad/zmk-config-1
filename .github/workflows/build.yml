@@ -45,8 +45,8 @@ jobs:
       - name: Prepare variables
         id: variables
         run: |
-          SHIELD_ARG="-DSHIELD=${{ matrix.shield }}
-          ARTIFACT_NAME="${{ matrix.board }}-${{ matrix.shield }}-zmk"
+          SHIELD_ARG="-DSHIELD=${{ matrix.shield }}"
+          ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
 
           echo ::set-output name=shield-arg::${SHIELD_ARG}
           echo ::set-output name=artifact-name::${ARTIFACT_NAME}
@@ -60,6 +60,33 @@ jobs:
         with:
           name: "firmware-${{ steps.variables.output.artifact-name }}"
           path: ${{ steps.variables.output.artifact-name }}.uf2
+
+  archive:
+    name: Create Arvhice
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Maypad
+        uses: actions/download-artifact@v2
+        with:
+          name: maypad-nice_nano_v2-zmk.uf2
+      - name: Download Sofle RGB Left
+        uses: actions/download-artifact@v2
+        with:
+          name: sofle-rgb_left-nice_nano_v2-zmk.uf2
+      - name: Download Sofle RGB Right
+        uses: actions/download-artifact@v2
+        with:
+          name: sofle-rgb_right-nice_nano_v2-zmk.uf2
+      - name: Archive
+        uses: actions/upload-artifact@v2
+        with:
+          mame: firmware
+          path: |
+            maypad-nice_nano_v2-zmk.uf2
+            sofle-rgb_left-nice_nano_v2-zmk.uf2
+            sofle-rgb_right-nice_nano_v2-zmk.uf2
+
 
 
       # - name: West Build (Maypad)
