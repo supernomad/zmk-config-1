@@ -69,18 +69,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download Maypad
+      - name: Download Artifacts
         uses: actions/download-artifact@v2
         with:
-          name: maypad-nice_nano_v2-zmk.uf2
-      - name: Download Sofle RGB Left
-        uses: actions/download-artifact@v2
-        with:
-          name: sofle-rgb_left-nice_nano_v2-zmk.uf2
-      - name: Download Sofle RGB Right
-        uses: actions/download-artifact@v2
-        with:
-          name: sofle-rgb_right-nice_nano_v2-zmk.uf2
+          path: artifacts
+      - name: LS Artifacts
+        run: ls -lh artifacts/
       - name: Archive
         uses: actions/upload-artifact@v2
         with:
