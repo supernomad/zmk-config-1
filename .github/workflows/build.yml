@@ -78,11 +78,8 @@ jobs:
       - name: Archive
         uses: actions/upload-artifact@v2
         with:
-          mame: firmware
-          path: |
-            maypad-nice_nano_v2-zmk.uf2
-            sofle-rgb_left-nice_nano_v2-zmk.uf2
-            sofle-rgb_right-nice_nano_v2-zmk.uf2
+          name: firmware
+          path: artifacts/*
 
 
 
