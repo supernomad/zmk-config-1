@@ -52,6 +52,9 @@ jobs:
           echo ::set-output name=artifact-name::${ARTIFACT_NAME}
       - name: Build
         run: west build -s zmk/app -b ${{ matrix.board }} -- ${{ steps.variables.outputs.shield-arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: DTS File
+        if: ${{ always() }}
+        run: cat -n build/zephyr/nice_nano_v2.dts.pre.tmp
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 ${{ steps.variables.output.artifact-name }}.uf2
 

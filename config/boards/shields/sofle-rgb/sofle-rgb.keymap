@@ -15,7 +15,7 @@
                                  &kp LALT  &kp MINUS &kp LBRC &kp SPACE &kp LCMD &mo 1 &kp RET &kp RBKT &kp EQUAL &kp ESC
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
 
     mod_layer {
@@ -27,7 +27,7 @@
                          &none    &none     &none  &none &none &trans &none  &none  &none  &tog 2
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
 
     func_layer {
@@ -39,14 +39,7 @@
                            &none            &none        &none        &none        &none &trans &none &none &none &trans
       >;
 
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
-
-// layer sample
-//         &none &none &none &none &none &none             &none &none &none &none &none &none
-//         &none &none &none &none &none &none             &none &none &none &none &none &none
-//         &none &none &none &none &none &none             &none &none &none &none &none &none
-//         &none &none &none &none &none &none &none &none &none &none &none &none &none &none
-//                     &none &none &none &none &none &none &none &none &none &none
