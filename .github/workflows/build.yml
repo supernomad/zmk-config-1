@@ -56,13 +56,13 @@ jobs:
         if: ${{ always() }}
         run: cat -n build/zephyr/nice_nano_v2.dts.pre.tmp
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 ${{ steps.variables.output.artifact-name }}.uf2
+        run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}-${{ matrix.board }}-zmk.uf2
 
       - name: Archive
         uses: actions/upload-artifact@v2
         with:
-          name: "firmware-${{ steps.variables.output.artifact-name }}"
-          path: ${{ steps.variables.output.artifact-name }}.uf2
+          name: "firmware-${{ matrix.shield }}-${{ matrix.board }}"
+          path: ${{ matrix.shield }}-${{ matrix.board }}-zmk.uf2
 
   archive:
     name: Create Arvhice
