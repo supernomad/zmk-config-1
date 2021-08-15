@@ -1,8 +1,4 @@
-#include "sofle-rgb.dtsi"
-
-&default_transform {
-  col-offset = <6>;
-};
+#include "sofle_rgb.dtsi"
 
 &kscan0 {
   col-gpios
@@ -15,6 +11,6 @@
     ;
 };
 
-&right_encoder {
+&left_encoder {
   status = "okay";
 };
