@@ -1,7 +1,7 @@
 if SHIELD_SOFLE_RGB_LEFT
 
 config ZMK_KEYBOARD_NAME
-       default "Sofle RGB Left"
+       default "Sofle RGB"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
        default y
